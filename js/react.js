@@ -1,43 +1,46 @@
-/* React.createElement */
-// const title = React.createElement(
-//     'h1',
-//     {
-//         id: 'main-title'
-//     },
-//     'My First React Element!'
-// );
+const Header = () => {
+    return (
+        <header>
+            <h1>Scoreboard</h1>
+            <span className="stats">Players: 1</span>
+        </header>
+    );
+}
 
-/* JSX */
-// const title = <h1>My First react Element!</h1>;
-const title = 'My First react Element!';
+const Player = () => {
+    return (
+        <div className="player">
+            <span className="player-name">
+                Bob
+            </span>
 
-/* React.createElement */
-// const description = React.createElement(
-//     'p',
-//     null,
-//     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-// );
+            <Counter />
+        </div>
+    );
+}
 
-/* JSX */
-// const description = <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>;
-const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+const Counter = () => {
+    return (
+        <div className="counter">
+            <button className="counter-action decrement">-</button>
+            <span className="counter-score">0</span>
+            <button className="counter-action increment">+</button>
+        </div>
+    );
+}
 
-/* React.createElement */
-// const header = React.createElement(
-//     'header',
-//     null,
-//     title, description
-// );
+const App = () => {
+    return (
+        <div className="scoreboard">
+            <Header />
 
-/* JSX */
-const header = (
-    <header>
-        <h1>{title}</h1>
-        <p>{description}</p>
-    </header>
-);
+            {/* List of players */}
+            <Player />
+        </div>
+    );
+}
 
 ReactDOM.render(
-    header,
+    <App />,
     document.getElementById('root')
 );
